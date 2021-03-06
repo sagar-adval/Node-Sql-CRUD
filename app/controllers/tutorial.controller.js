@@ -4,7 +4,7 @@ const Tutorial = db.tutorials;
 
 const Op = db.Sequelize.Op;
 
-exports.create = async (req, res)  => {
+const create  = async (req, res)  => {
     if (!req.body.title) {
         return res.status(400).send({
           message: "Title can not be empty!"
@@ -23,3 +23,4 @@ exports.create = async (req, res)  => {
       return res.send(500).send('Could not create the tutorial');
 }
 
+module.exports = {create};

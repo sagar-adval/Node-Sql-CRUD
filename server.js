@@ -16,7 +16,7 @@ db.sequelize.sync().then(() => {
 });
 
 app.get("/", (req, res) => {
-    res.json({ message: "Testing!" });
+    res.json({ message: "Testing!"});
   });
 
   const tutorialController = require("./routes/tutorial.routes");

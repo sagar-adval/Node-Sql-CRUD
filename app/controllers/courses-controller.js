@@ -14,7 +14,8 @@ exports.getCoursesList = async (req, res) => {
                     description: 'asdasdasd'
                 }
             ]
-            if(!list){
+            // const list = await db.courses.findAll();
+            if(!list.length){
                 throw {statusCode: 404, status: false, message: 'No courses found.'}
             }
             return res.status(200).send({status: true, data: list})

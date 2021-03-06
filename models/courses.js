@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  courses.init({
+  courses.init({  
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     tutor: DataTypes.STRING

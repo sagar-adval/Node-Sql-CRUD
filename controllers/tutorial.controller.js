@@ -1,6 +1,7 @@
 const db = require('../models');
+const tutorialService = require('../services/tutorial.service')
 
-const Tutorial = db.tutorials;
+const Tutorial = db.tutorial;
 
 const Op = db.Sequelize.Op;
 
@@ -10,10 +11,7 @@ const create  = async (req, res)  => {
           message: "Title can not be empty!"
         });
       }
-
-      const tutorial = req.body;
-
-      const createdTut = await Tutorial.create(tutorial);
+      const createdTut = await tutorialService.createTutorial(req.body);
 
       if(createdTut)
       {

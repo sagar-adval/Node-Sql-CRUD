@@ -6,25 +6,24 @@ dotenv.config();
 
 app.use(express.json())
 
-const db = require('./app/models/index')
+const db = require('./models/index')
 // db.sequelize.sync();
 // console.log(db);
 
 
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
+db.sequelize.sync().then(() => {
+  console.log("Connected to Database");
 });
 
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to bezkoder application." });
+    res.json({ message: "Testing!" });
   });
 
-  const tutorialController = require("./app/routes/tutorial.routes");
+  const tutorialController = require("./routes/tutorial.routes");
 
   app.use("/api/tutorials", tutorialController);
   
-  // set port, listen for requests
   const PORT = process.env.PORT || 8080;
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
-  });
+});

@@ -20,8 +20,10 @@ app.get("/", (req, res) => {
   });
 
   const tutorialController = require("./app/routes/tutorial.routes");
+  const coursesRoutes = require("./app/routes/courses-routes");
 
   app.use("/api/tutorials", tutorialController);
+  app.use("/api/courses", coursesRoutes )
   
   // set port, listen for requests
   const PORT = process.env.PORT || 8080;
